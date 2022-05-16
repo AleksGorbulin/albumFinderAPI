@@ -1,0 +1,4 @@
+<ul class="list-group" >
+  <h1 *ngIf="albums.length>0">Artist albums</h1>
+  <li *ngFor="let album of albums;let i =index" class="list-group-item"><span class="badge">{{i+1}}</span>{{album.strAlbum}} <img [src]="album.strAlbumThumb" alt=""> </li>
+</ul>

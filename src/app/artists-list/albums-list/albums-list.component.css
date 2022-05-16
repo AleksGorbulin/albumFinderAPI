@@ -1,0 +1,9 @@
+.badge{
+  margin-right: 10px;
+  float: left;
+}
+li img{
+  position: absolute;
+  right: 0;
+  width: 50px;
+}

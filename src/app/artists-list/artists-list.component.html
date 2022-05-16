@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-6">
+<div class="input-group">
+  <input
+  [(ngModel)]="searchValue"
+  (keyup.enter)="searchArtist()"
+  type="text" class="form-control" placeholder="please type artist name">
+  <span class="input-group-btn">
+       <button
+       (click)="searchArtist()"
+       class="btn btn-success" type="button">Find</button>
+  </span>
+</div>
+
+<hr>
+<div *ngIf="!showMessage;else notFound">
+<a
+*ngFor="let artist of artists"
+(click)="showArtistsPlaylist(artist.idArtist)" class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{artist.strArtist}}</h4>
+    <p class="list-group-item-text">Music style: {{artist.strGenre}}</p>
+  </div>
+  <span class="pull-right">
+    <img src="{{artist.strArtistLogo}}" style="width: 100px;" alt="{{artist.strArtist}}" class="img-responsive">
+  </span>
+</a>
+</div>
+<ng-template #notFound><div><h3> Sorry, there is no results for your search.</h3>
+</div></ng-template>
+</div>
+<div class="col-md-6">
+<router-outlet></router-outlet>
+</div>
+</div>
